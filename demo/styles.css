@@ -1,0 +1,151 @@
+/* SchoolKit-specific layout. Tokens and components come from arvion.css. */
+
+/* ---------- attendance register ------------------------------------------ */
+#attendance-chart { min-height: 0; }
+.grid-4 > .card { padding: 16px 18px; }
+.grid-4 .stat-value { font-size: 26px; }
+
+#register-table .table td { padding: 8px 12px; }
+#register-table .table th { padding: 10px 12px; }
+
+.status-group { display: inline-flex; gap: 4px; }
+.status-btn {
+  width: 28px; height: 26px;
+  display: inline-grid; place-items: center;
+  border-radius: 7px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--muted);
+  font: 600 11px/1 var(--font-mono);
+  cursor: pointer;
+}
+.status-btn:hover { color: var(--text); border-color: var(--gold-line); }
+.status-btn[aria-pressed="true"].present { background: var(--green-soft); border-color: rgba(52, 211, 153, 0.5); color: var(--green); }
+.status-btn[aria-pressed="true"].late { background: rgba(251, 191, 36, 0.12); border-color: rgba(251, 191, 36, 0.5); color: var(--amber); }
+.status-btn[aria-pressed="true"].absent { background: var(--red-soft); border-color: rgba(248, 113, 113, 0.5); color: var(--red); }
+.status-btn[aria-pressed="true"].excused { background: var(--blue-soft); border-color: rgba(58, 123, 255, 0.45); color: #8fb4ff; }
+
+.status-chip {
+  display: inline-grid; place-items: center;
+  width: 24px; height: 22px; border-radius: 6px;
+  font: 600 10.5px/1 var(--font-mono);
+  border: 1px solid var(--line-strong);
+}
+.status-chip.present { color: var(--green); background: var(--green-soft); border-color: rgba(52, 211, 153, 0.4); }
+.status-chip.late { color: var(--amber); background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.4); }
+.status-chip.absent { color: var(--red); background: var(--red-soft); border-color: rgba(248, 113, 113, 0.4); }
+.status-chip.excused { color: #8fb4ff; background: var(--blue-soft); border-color: rgba(58, 123, 255, 0.4); }
+
+.roll { font: 600 12px/1 var(--font-mono); color: var(--muted); width: 26px; text-align: right; }
+
+/* ---------- dashboard class cards ---------------------------------------- */
+.class-row { padding: 4px 0; border-bottom: 1px solid var(--line); }
+.class-row:last-child { border-bottom: 0; }
+.class-row .row * { font-variant-numeric: tabular-nums; }
+
+/* ---------- fees ---------------------------------------------------------- */
+.invoice-list { display: flex; flex-direction: column; gap: 8px; margin: 4px 0 14px; }
+.invoice-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  align-items: center;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: rgba(6, 9, 16, 0.35);
+  font-size: 12px;
+}
+.invoice-row .mono { font-variant-numeric: tabular-nums; }
+.invoice-row.overdue { border-color: rgba(248, 113, 113, 0.35); }
+
+.receipt-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+.receipt-row:last-child { border-bottom: 0; }
+
+/* ---------- report card (a light sheet on a dark app) -------------------- */
+.report-sheet {
+  background: #f8f9fc;
+  color: #10131c;
+  border-radius: 10px;
+  padding: 24px 30px 20px;
+  box-shadow: 0 30px 70px -40px #000;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.report-sheet .rc-head { display: flex; align-items: flex-start; gap: 18px; border-bottom: 2px solid #10131c; padding-bottom: 10px; }
+.report-sheet .rc-mark {
+  width: 46px; height: 46px; border-radius: 10px; flex: none;
+  display: grid; place-items: center;
+  background: #10131c; color: #f5c26b;
+  font: 700 20px/1 var(--font-display);
+}
+.report-sheet h2 { font: 700 23px/1.2 var(--font-display); margin: 0; letter-spacing: -0.02em; color: #10131c; }
+.report-sheet .rc-addr { font-size: 12px; color: #5a6579; margin-top: 3px; }
+.report-sheet .rc-exam { margin-left: auto; text-align: right; font-size: 11.5px; color: #5a6579; letter-spacing: 0.06em; text-transform: uppercase; }
+.report-sheet .rc-exam strong { display: block; color: #10131c; font-size: 13px; letter-spacing: 0.02em; text-transform: none; margin-top: 4px; }
+
+.report-sheet .rc-student {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px 20px;
+  padding: 12px 0 10px;
+  border-bottom: 1px solid #dfe3ec;
+}
+.report-sheet .rc-field span { display: block; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase; color: #7a8699; margin-bottom: 2px; }
+.report-sheet .rc-field b { font-weight: 600; font-size: 13px; color: #10131c; }
+
+.report-sheet table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 12.5px; }
+.report-sheet th {
+  text-align: left; font: 600 9.5px/1 var(--font-sans); letter-spacing: 0.1em; text-transform: uppercase;
+  color: #7a8699; padding: 5px 8px; border-bottom: 1px solid #10131c;
+}
+.report-sheet td { padding: 5.5px 8px; border-bottom: 1px solid #e4e8ef; color: #2b3447; }
+.report-sheet td.num, .report-sheet th.num { text-align: right; font-variant-numeric: tabular-nums; }
+.report-sheet tbody tr:last-child td { border-bottom: 1px solid #10131c; }
+.report-sheet .fail-row td { color: #b91c1c; }
+.report-sheet .grade-pill {
+  display: inline-block; min-width: 34px; text-align: center;
+  padding: 2px 7px; border-radius: 5px; font-weight: 700; font-size: 11.5px;
+  background: #e9edf5; color: #10131c;
+}
+.report-sheet .grade-pill.good { background: #dcf5e9; color: #097250; }
+.report-sheet .grade-pill.bad { background: #fde2e2; color: #b91c1c; }
+
+.rc-summary { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 9px; margin-top: 12px; }
+.rc-box { border: 1px solid #dfe3ec; border-radius: 8px; padding: 7px 10px; background: #fff; }
+.rc-box span { display: block; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #7a8699; margin-bottom: 3px; }
+.rc-box b { font: 600 16px/1.1 var(--font-display); color: #10131c; font-variant-numeric: tabular-nums; }
+.rc-box.result b { color: #097250; }
+.rc-box.result.fail b { color: #b91c1c; }
+
+.rc-foot { display: flex; align-items: flex-end; gap: 26px; margin-top: 16px; padding-top: 11px; border-top: 1px dashed #cfd6e4; }
+.rc-sign { flex: 1; }
+.rc-sign .line { height: 1px; background: #9aa6ba; margin-bottom: 5px; }
+.rc-sign span { font-size: 10px; color: #7a8699; letter-spacing: 0.06em; text-transform: uppercase; }
+.rc-scale { font-size: 9.5px; color: #7a8699; line-height: 1.6; max-width: 380px; }
+.rc-demo { margin-left: auto; font-size: 9.5px; color: #9aa6ba; }
+
+/* ---------- print --------------------------------------------------------- */
+@media print {
+  body { background: #fff; }
+  .aurora, .grid-lines, .sidebar, .topbar, .demo-banner, .no-print, .toasts { display: none !important; }
+  .shell { display: block; }
+  .main { padding: 0; }
+  .report-sheet { box-shadow: none; max-width: none; padding: 0; border-radius: 0; }
+  .report-sheet * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  @page { margin: 14mm; }
+}
+
+@media (max-width: 1080px) {
+  .rc-summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+.page-head { margin-bottom: 10px; }
+[data-view-panel="dashboard"] .grid:last-child .card { padding: 15px 17px; }
