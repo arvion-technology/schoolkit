@@ -2,7 +2,7 @@
 <img src="docs/demo.gif" alt="SchoolKit dashboard" width="100%" />
 </div>
 
-<sub>Recorded from the live demo — <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
+<sub>Recorded from the live demo, <a href="docs/demo.mp4">MP4</a> · <a href="docs/screenshot.png">static frame</a></sub>
 
 # SchoolKit
 
@@ -16,8 +16,8 @@ GPA, class ranking, and a report card that prints straight from the page.
 
 The demo school is invented but the arithmetic is not: 36 students in three
 sections, 24 school days of attendance, 252 midterm marks and 108 invoices, all
-generated from one seed. Every number you see — the 74% collection rate, the GPA
-on a report card, the rank in the section — comes from the modules in `src/`,
+generated from one seed. Every number you see, the 74% collection rate, the GPA
+on a report card, the rank in the section, comes from the modules in `src/`,
 which are the modules the tests exercise. Nothing is typed into the HTML.
 
 Two decisions shape the rest of the code. Grades are credit-weighted, because a
@@ -27,18 +27,18 @@ because a balance changes the moment a payment arrives.
 
 ## What it does
 
-- **Dashboard** — present today, fees outstanding, late fees accrued, an
+- **Dashboard**: present today, fees outstanding, late fees accrued, an
   absences-and-late-arrivals chart, attendance by section and the top student in
   each section.
-- **Attendance register** — pick a section and a school day, mark P/L/A/E per
+- **Attendance register**: pick a section and a school day, mark P/L/A/E per
   student. Every mark is kept in `localStorage`, and the per-student term
   percentage updates as you go.
-- **Fees and ledger** — billed, collected, outstanding and late fees; a student
+- **Fees and ledger**: billed, collected, outstanding and late fees; a student
   ledger sorted by payable amount; a payment modal that allocates a lump sum to
   the oldest invoice first and reports any excess.
-- **Report card** — marks, grade, GPA and rank per subject, attendance, result,
+- **Report card**: marks, grade, GPA and rank per subject, attendance, result,
   and a print button. Rank is competition ranking inside the section (1, 2, 2, 4).
-- **Reset** — rebuilds the school from the seed, discarding local edits.
+- **Reset**: rebuilds the school from the seed, discarding local edits.
 
 ## Screenshots
 
@@ -59,7 +59,7 @@ because a balance changes the moment a payment arrives.
 
 The demo layer is deliberately dumb. It renders rows, wires clicks and calls one
 of two pure modules. When a payment is recorded, the demo does not adjust a
-number by hand — it hands the invoice list to `allocatePayment` and re-renders
+number by hand, it hands the invoice list to `allocatePayment` and re-renders
 from the result.
 
 The data shapes are small:
@@ -112,7 +112,7 @@ balance = total - sum(payments)
 A late fee applies only after the due date, and the first week is a grace period.
 After that it is 2% of the *outstanding balance* per full week, capped at 20% of
 the invoice total. So an invoice of Rs 4,500 with Rs 2,500 still unpaid, 30 days
-past due, accrues `floor(30 / 7) = 4` periods on Rs 2,500 — 4 × 2% × 2,500 = Rs
+past due, accrues `floor(30 / 7) = 4` periods on Rs 2,500, 4 × 2% × 2,500 = Rs
 200, which is also exactly the cap for that invoice.
 
 Because the fee depends on today's balance, `invoiceTotals(invoice, { now })` is
@@ -164,7 +164,7 @@ node scripts/serve-check.mjs
 ## Limitations
 
 This is a demo, not school software. There is no server, no login and no audit
-trail — two clerks editing the same register in different browsers would not see
+trail, two clerks editing the same register in different browsers would not see
 each other, because the only storage is `localStorage`. Attendance is one status
 per student per day (no half-days or subject-wise periods) and Saturday is the
 only weekly holiday; festival holidays are not modelled.

@@ -1,4 +1,4 @@
-// SchoolKit demo — rendering and interaction only.
+// SchoolKit demo, rendering and interaction only.
 // Attendance, GPA, ranking and fee maths all live in ../src/; both the demo and
 // the test suite import the same modules.
 import { CLASSES, GRADE_SCALE, generateSchool } from "../src/data.js";
@@ -344,7 +344,7 @@ function openPayment(studentId) {
     ...["Cash", "eSewa", "Khalti", "Bank"].map((m) => el("option", { value: m, text: m })));
 
   A.modal({
-    title: `${student.name} — collect payment`,
+    title: `${student.name}, collect payment`,
     body: el("div", { class: "col", style: "gap:14px" },
       el("div", { class: "invoice-list" },
         ...detail.map(({ invoice, totals }) => el("div", { class: `invoice-row${totals.overdue ? " overdue" : ""}` },
@@ -409,7 +409,7 @@ function renderFees() {
       { label: "Billed", align: "right", render: (p) => el("span", { class: "mono small muted", text: moneyK(p.billed) }) },
       { label: "Paid", align: "right", render: (p) => el("span", { class: "mono small", text: moneyK(p.paid) }) },
       { label: "Balance", align: "right", render: (p) => el("span", { class: "mono", text: moneyK(p.balance) }) },
-      { label: "Late fee", align: "right", render: (p) => el("span", { class: "mono small", style: p.lateFee ? "color:var(--red)" : "color:var(--muted)", text: p.lateFee ? moneyK(p.lateFee) : "—" }) },
+      { label: "Late fee", align: "right", render: (p) => el("span", { class: "mono small", style: p.lateFee ? "color:var(--red)" : "color:var(--muted)", text: p.lateFee ? moneyK(p.lateFee) : ", " }) },
       { label: "Payable", align: "right", render: (p) => el("span", { class: "mono strong", text: moneyK(p.payable) }) },
       { label: "Status", align: "right", render: (p) => invoiceStatusBadge(p.status) },
       {

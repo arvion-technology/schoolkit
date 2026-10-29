@@ -124,7 +124,7 @@ export function gradeDistribution(cards, scale = GRADE_SCALE) {
 }
 
 /**
- * Attendance stats. Late counts as attended — the student was in class — while
+ * Attendance stats. Late counts as attended, the student was in class, while
  * excused absence still counts against the rate, because the register records
  * presence, not permission. The demo explains this where the number appears.
  */
